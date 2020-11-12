@@ -18,7 +18,7 @@ def GoToLinks(ListOfLinks, ScreenshotCounter):
         ScreenshotCounter = TakeScreenshot(ScreenshotCounter)
 
 if __name__ == '__main__':
-    # PATH = "C:\Program Files (x86)\chromedriver.exe"
+    PATH = "C:\Program Files (x86)\chromedriver.exe"
 
     USER_AGENT_LIST = [
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     opts.add_experimental_option('useAutomationExtension', False)
     opts.add_argument('--disable-blink-features=AutomationControlled')
 
-    driver = webdriver.Chrome(options=opts)
+    driver = webdriver.Chrome(options=opts, executable_path=PATH)
 
     driver.get("https://www.wmphvacations.com/")
     ug_verif = driver.execute_script("return navigator.userAgent;")

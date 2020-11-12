@@ -6,7 +6,7 @@ import os
 import time
 
 if __name__ == '__main__':
-    PATH = "C:\Program Files (x86)\chromedriver.exe"
+    PATH = "chromedriver.exe"
 
     USER_AGENT_LIST = [
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
