@@ -17,6 +17,8 @@ if __name__ == '__main__':
 
     opts = Options()
     opts.add_argument(userAgent)
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--headless')
     opts.add_argument("window-size=1280,800")
     opts.add_experimental_option("excludeSwitches", ["enable-automation"])
     opts.add_experimental_option('useAutomationExtension', False)

@@ -135,11 +135,12 @@ if __name__ == '__main__':
     userAgent = "user-agent=" + random.choice(USER_AGENT_LIST)
 
     opts = Options()
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--headless')
     opts.add_argument(userAgent)
     opts.add_argument("window-size=1200,800")
     opts.add_experimental_option("excludeSwitches", ["enable-automation"])
     opts.add_experimental_option('useAutomationExtension', False)
-    opts.add_argument('--no-sandbox')
     opts.add_argument("--disable-dev-shm-usage")
     opts.add_argument('--disable-blink-features=AutomationControlled')
 

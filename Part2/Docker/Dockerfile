@@ -1,7 +1,8 @@
 FROM python:3.8
 
-COPY . /app
-WORKDIR /app
+COPY . /Code
+WORKDIR /Code
+VOLUME /Code
 
 # install google chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -21,4 +22,4 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "./Part1.py"]
+CMD ["python", "./Part2.py"]

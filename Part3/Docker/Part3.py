@@ -3,7 +3,9 @@ from selenium.webdriver.chrome.options import Options
 import random
 
 def TakeScreenshot(counter):
-    driver.save_screenshot("screenshot_" + str(counter) + ".png")
+    ScreenshotName = "screenshot_" + str(counter) + ".png"
+    driver.save_screenshot(ScreenshotName)
+    print("Saved : ", ScreenshotName)
     return counter + 1
 
 def GoToLinks(ListOfLinks, ScreenshotCounter):
@@ -16,7 +18,7 @@ def GoToLinks(ListOfLinks, ScreenshotCounter):
         ScreenshotCounter = TakeScreenshot(ScreenshotCounter)
 
 if __name__ == '__main__':
-    PATH = "C:\Program Files (x86)\chromedriver.exe"
+    # PATH = "C:\Program Files (x86)\chromedriver.exe"
 
     USER_AGENT_LIST = [
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
@@ -27,12 +29,14 @@ if __name__ == '__main__':
 
     opts = Options()
     opts.add_argument(userAgent)
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--headless')
     opts.add_argument("window-size=1280,800")
     opts.add_experimental_option("excludeSwitches", ["enable-automation"])
     opts.add_experimental_option('useAutomationExtension', False)
     opts.add_argument('--disable-blink-features=AutomationControlled')
 
-    driver = webdriver.Chrome(options=opts, executable_path=PATH)
+    driver = webdriver.Chrome(options=opts)
 
     driver.get("https://www.wmphvacations.com/")
     ug_verif = driver.execute_script("return navigator.userAgent;")
@@ -44,11 +48,11 @@ if __name__ == '__main__':
     ScreenshotCounter = TakeScreenshot(0)
 
     links = {
-    "customer experience" : "menu-item-2570",
-    "leaders" : "menu-item-2572",
-    "news" : "menu-item-2574",
-    "careers" : "menu-item-2573",
-    "contact us" : "menu-item-2575"
+        "customer experience" : "menu-item-2570",
+        "leaders" : "menu-item-2572",
+        "news" : "menu-item-2574",
+        "careers" : "menu-item-2573",
+        "contact us" : "menu-item-2575"
     }
 
     ListOfLinks = ["customer experience", "leaders", "careers"]
